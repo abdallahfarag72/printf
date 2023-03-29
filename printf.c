@@ -1,14 +1,12 @@
 #include <stdarg.h>
-#include <stdlib.h>
+#include <unistd.h>
 #include "main.h"
-
 /**
- * _printf - produces output according to a format.
- * @format: character string containing format specifiers
- * @...: additional arguments to replace format specifiers
+ * _printf - Prints a formatted string to the standard output.
+ * @format: The format string.
  *
- * Return: number of characters printed
- * (excluding the null byte used to end output to strings)
+ * Return: The number of characters printed (excluding the null byte used to end
+ * output to strings), or -1 if an error occurred.
  */
 int _printf(const char *format, ...)
 {
@@ -28,11 +26,16 @@ int _printf(const char *format, ...)
 				break;
 
 			case 's':
-				len += _puts(va_arg(args, char*));
+				len += _puts(va_arg(args, char *));
 				break;
 
 			case '%':
 				len += _putchar('%');
+				break;
+
+			case 'd':
+			case 'i':
+				len += _printd(va_arg(args, int));
 				break;
 
 			default:
@@ -42,9 +45,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
 			len += _putchar(*format);
-		}
 		++format;
 	}
 	va_end(args);
