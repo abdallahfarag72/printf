@@ -3,7 +3,8 @@
  * _printd - Writes a signed integer to the standard output.
  * @n: The integer to write.
  *
- * Return: On success, the number of characters written. On error, -1 is returned
+ * Return: On success, the number of characters
+ * written. On error, -1 is returned
  * and errno is set appropriately.
  */
 int _printd(int n)
