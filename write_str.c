@@ -18,6 +18,6 @@ int write_str(char *str)
 		length++;
 	}
 	fd = fileno(stdin);
-	write(fd, str, sizeof(str));
+	write(fd, str, length);
 	return (length);
 }
