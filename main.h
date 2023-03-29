@@ -1,6 +1,6 @@
 #ifndef MAIN
 #define MAIN
-int write_str(char *str);
-int write_char(char c);
+int _putchar(char c);
+int _puts(char *str);
 int _printf(const char *format, ...);
 #endif
